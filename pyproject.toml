@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "llm-training"
+version = "0.1.0"
+description = "Terminal-based LLM scratch training with txt/HF datasets, resume, and GGUF export"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "torch>=2.2.0",
+  "datasets>=2.20.0",
+  "sentencepiece>=0.2.0",
+  "transformers>=4.44.0",
+  "PyYAML>=6.0.1",
+  "tqdm>=4.66.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0.0",
+]
+
+[project.scripts]
+llm-trainer = "llm_trainer.cli:main"
+
+[tool.setuptools]
+packages = ["llm_trainer", "llm_trainer.data", "llm_trainer.tokenizer", "llm_trainer.model", "llm_trainer.train", "llm_trainer.export"]

@@ -1,0 +1,7 @@
+.cache/
+.venv/
+__pycache__/
+.pytest_cache/
+*.pyc
+models/
+llm_training.egg-info/

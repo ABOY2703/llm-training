@@ -1,0 +1,23 @@
+services:
+  llm-trainer-cpu:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: cpu
+    image: llm-trainer:cpu
+    volumes:
+      - ./:/app
+      - ./.cache:/app/.cache
+    working_dir: /app
+
+  llm-trainer-cuda:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: cuda
+    image: llm-trainer:cuda
+    gpus: all
+    volumes:
+      - ./:/app
+      - ./.cache:/app/.cache
+    working_dir: /app
